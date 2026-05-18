@@ -12,16 +12,23 @@ if (numero % 2 === 0) {
 }
 
 
-
-
 /*
 2. Crie um programa que classifica a idade de uma pessoa em categorias (criança,
 adolescente, adulto, idoso) com base no valor fornecido, utilizando uma estrutura de
 controle if-else.
 */
 
+let idade = prompt("Digite o valor da idade: ");
 
-
+if (idade < 13) {
+    console.log("Criança");
+} else if (idade > 12 && idade < 18) {
+    console.log("Adolescente");
+} else if (idade > 17 && idade < 65) {
+    console.log("Adulto");
+} else {
+    console.log("Idoso");
+}
 
 
 /*
