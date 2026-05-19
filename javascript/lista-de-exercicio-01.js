@@ -36,8 +36,16 @@ if (idade < 13) {
 "Recuperação", ou "Reprovado" utilizando if-else if.
 */
 
+let nota = prompt("Digite o valor da nota: ");
 
-
+if (nota < 5) {
+    console.log("Reprovado");
+} else if (nota > 4 && nota < 7) {
+    console.log("Recuperação");
+} else {
+    console.log("Aprovado"); 
+    
+}
 
 
 /*
@@ -45,8 +53,22 @@ if (idade < 13) {
 Utilize switch-case para implementar a lógica de cada opção selecionada.
 */
 
+let opcao = prompt("Digite a opção do menu de 1 a 3: ");
 
 
+switch (opcao) {
+    case 1:
+          console.log("A opção escolhida foi a 1");
+        break;
+    case 2:
+          console.log("A opção escolhida foi a 2");
+        break;
+    case 3:
+          console.log("A opção escolhida foi a 3");          
+        break;
+    default:
+      console.log("opção invalida, programa encerrado");
+}
 
 
 /*
@@ -55,7 +77,8 @@ determina a categoria de peso (baixo peso, peso normal, sobrepeso, obesidade)
 utilizando if-else.
 */
 
-
+let massa = prompt("Digite a opção do menu de 1 a 3: ");
+let altura = prompt("Digite a opção do menu de 1 a 3: ");
 
 
 
