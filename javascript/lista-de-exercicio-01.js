@@ -77,18 +77,14 @@ determina a categoria de peso (baixo peso, peso normal, sobrepeso, obesidade)
 utilizando if-else.
 */
 
-let massa = prompt("Digite a opção do menu de 1 a 3: ");
-let altura = prompt("Digite a opção do menu de 1 a 3: ");
+let massa = prompt("Digite o valor da massa: ");
+let altura = prompt("Digite a altura: ");
 let imc = massa/altura**2;
 
 if (imc < 18.5){ console.log("magreza"); }
 if (imc>= 18.5 && imc<25){ console.log("normal"); }
 if (imc>= 25 && imc<30){ console.log("sobrepeso"); }
 else{console.log("obesidade");}
-
-
-
-
 
 
 /*
@@ -103,7 +99,13 @@ A + B
 */
 
 
+let a = prompt("Digite o valor do lado A: ");
+let b = prompt("Digite o valor do lado B: ");
+let c = prompt("Digite o valor do lado C: ");
 
+if(a === b && b === c){ console.log("o triângulo é equilatero"); }
+else if(a === b || b === c || c === a){ console.log("o triângulo é isósceles"); }
+else { console.log("o triângulo é escaleno"); }
 
 
 /*
@@ -111,8 +113,27 @@ A + B
 média aritmética desses números.
 */
 
+let op;
 
+let total = 0
 
+let nums = 0;
+
+do{
+
+    op = prompt("Digite o valor do numero para calcular a média. Para sair digite 0: ");
+    
+    total += op;
+    
+    nums ++;  
+    
+    console.log(`O numero escolhido foi ${op} e o valor total somado é ${total}`);
+    
+    
+}while(op !==0);
+    
+console.log("A média aritimetica é igual a: " , total/nums);
+    
 
 
 /*
@@ -120,8 +141,22 @@ média aritmética desses números.
 um loop for ou while.
 */
 
+let number = prompt("Digite o valor do numero para calcular o seu fatorial: ");
 
+let factorial = 1;
 
+let n = number;
+
+while(n > 1){
+    
+    factorial *= n;
+    
+    n-- ;
+    
+    
+}
+
+console.log(`O fatorial de  ${number} é igual a ${factorial}`);
 
 
 /*
@@ -129,8 +164,22 @@ um loop for ou while.
 Fibonacci utilizando um loop for.
 */
 
+let n1 = 0;
+let n2 = 1;
+
+console.log("Os 10 primeiros números da sequência de Fibonacci são:");
 
 
+console.log(n1);
+
+
+for (let i = 2; i <= 10; i++) {
+    let proximoTermo = n1 + n2;
+    console.log(proximoTermo);
+    
+    n1 = n2;
+    n2 = proximoTermo;
+}
 
 
 /*
@@ -139,9 +188,23 @@ mostre uma listagem com todos os nomes informados, na ordem inversa daquela em
 que eles foram informados.
 */
 
+let nomes = [];
+let nome = '';
 
+for (let i = 0; i < 7; i++){
+    
+    nome = prompt(`Digite o nome da pessoa - ${i +1}: `);
+    
+    nomes.push(nome);
+    
+         
+}
 
-
+for(let j = -1; j <= -6; j--){
+    
+    console.log(nomes.at(j));
+    
+}
 
 /*
 11. Crie um programa que leia o nome e a idade de 9 pessoas e guarde esses valores em
@@ -149,8 +212,36 @@ dois vetores, em posições relacionadas. No final, mostre uma listagem contendo
 os dados das pessoas menores de idade.
 */
 
+let names = [];
+let ages = [];
+
+let name = '';
+let age = 0;
 
 
+for (let i = 0; i < 9; i++){
+    
+    name = prompt(`Digite o nome da pessoa - ${i +1}: `);
+    
+    names.push(name);
+    
+    age = prompt(`Digite o nome da pessoa - ${i +1}: `);
+    
+    ages.push(age);
+    
+    
+}
+
+for(let j = 0; j <9; j++){
+    
+    if(ages(j) < 18){
+        
+        console.log(names(j) , ages(j));
+        
+        
+    }
+    
+}
 
 
 /*
