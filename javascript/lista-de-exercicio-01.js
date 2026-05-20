@@ -79,6 +79,15 @@ utilizando if-else.
 
 let massa = prompt("Digite a opção do menu de 1 a 3: ");
 let altura = prompt("Digite a opção do menu de 1 a 3: ");
+let imc = massa/altura**2;
+
+if (imc < 18.5){ console.log("magreza"); }
+if (imc>= 18.5 && imc<25){ console.log("normal"); }
+if (imc>= 25 && imc<30){ console.log("sobrepeso"); }
+else{console.log("obesidade");}
+
+
+
 
 
 
