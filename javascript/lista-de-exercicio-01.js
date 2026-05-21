@@ -246,13 +246,18 @@ for(let j = 0; j <9; j++){
 
 /*
 12. Faça uma função que recebe, por parâmetro, a altura (alt) e o sexo de uma pessoa
-eretorna o seu peso ideal. Para homens, calcular o peso ideal usando a fórmula: peso
+e retorna o seu peso ideal. Para homens, calcular o peso ideal usando a fórmula: peso
 
 ideal = 72.7 x alt - 58 e, para mulheres, peso ideal = 62.1 x alt - 44.7.
 */
 
+let massa = prompt("Digite o valor da massa: ");
+let alt = prompt("Digite a altura: ");
+let sexo = prompt("Digite o sexo: ");
 
-
+if(sexo === m){ console.log(`O peso ideal para você homem é ${72.7 x alt - 58}`); }
+else (sexo === f){ console.log(`O peso ideal para você mulher é ${62.1 x alt - 44.7}`); }
+else{console.log("Você digitou um sexo inexistente e o programa será encerrado.");}
 
 
 /*
@@ -270,6 +275,28 @@ redução do INSS).
 */
 
 
+function calcularContracheque(matricula, nome, salarioBruto) {
+    const deducaoINSS = salarioBruto * 0.12;
+    const salarioLiquido = salarioBruto - deducaoINSS;
+    
+    console.log(`
+    [
+        Matrícula: ${matricula},
+        Nome: ${nome},
+        Salário líquido: ${salarioBruto},
+        Dedução INSS: ${deducaoINSS},
+        Salário líquido: ${salarioLiquido}
+    ]`)
+}
+
+const funcionarios = [
+    [1, "Funcionário 1", 2000],
+[2, "Funcionário 2", 2500],
+];
+
+for (const funcionario of funcionarios) {
+    calcularContracheque(...funcionario);
+}
 
 
 
