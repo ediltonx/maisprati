@@ -308,6 +308,48 @@ média do número de filhos, o maior salário e o percentual de pessoas com sal�
 R$350,00.
 */
 
+function pesquisaPrefeitura() {
+    let salarios = [];
+    let filhos = [];
+    let continuar = true;
+    
+    while (continuar) {
+        let salario = parseFloat(prompt("Digite o salário (ou deixe em branco para sair):"));
+        
+        if (isNaN(salario) || salario === "") {
+            continuar = false;
+            break;
+        }
+        
+        let numFilhos = parseInt(prompt("Digite o número de filhos:"));
+        
+        salarios.push(salario);
+        filhos.push(numFilhos);
+    }
+    
+    if (salarios.length === 0) {
+        console.log("Nenhum dado foi coletado.");
+        return;
+    }
+    
+    let mediaSalario = salarios.reduce((a, b) => a + b, 0) / salarios.length;
+    let mediaFilhos = filhos.reduce((a, b) => a + b, 0) / filhos.length;
+    let maiorSalario = Math.max(...salarios);
+    let pessoasAte350 = salarios.filter(s => s <= 350).length;
+    let percentualAte350 = (pessoasAte350 / salarios.length) * 100;
+    
+    console.log(`
+    Resultado da Pesquisa:
+    - Média de salário: R$ ${mediaSalario.toFixed(2)}
+    - Média de filhos: ${mediaFilhos.toFixed(2)}
+    - Maior salário: R$ ${maiorSalario.toFixed(2)}
+    - Percentual de pessoas com salário até R$350: ${percentualAte350.toFixed(2)}%
+    `);
+}
+
+// pesquisaPrefeitura();
+
+
 
 
 
@@ -317,6 +359,30 @@ R$350,00.
 principal são iguais a 1 e os demais são nulos.
 */
 
+function criarMatrizIdentidade(n) {
+    let matriz = [];
+    
+    for (let i = 0; i < n; i++) {
+        matriz[i] = [];
+        for (let j = 0; j < n; j++) {
+            if (i === j) {
+                matriz[i][j] = 1;
+            } else {
+                matriz[i][j] = 0;
+            }
+        }
+    }
+    
+    console.log("Matriz Identidade 7x7:");
+    for (let i = 0; i < n; i++) {
+        console.log(matriz[i]);
+    }
+    
+    return matriz;
+}
+
+// criarMatrizIdentidade(7);
+
 
 
 
@@ -325,6 +391,39 @@ principal são iguais a 1 e os demais são nulos.
 16. Dada uma matriz M[1..6,1..8], criar um vetor C que contenha, em cada posição, a
 quantidade de elementos negativos da linha correspondente de M.
 */
+
+function contarNegativosPorLinha() {
+    // Criar matriz M com valores de exemplo
+    let M = [
+        [1, -2, 3, -4, 5, 6, -7, 8],
+        [-1, 2, -3, 4, -5, 6, 7, -8],
+        [9, -10, 11, -12, 13, -14, 15, 16],
+        [-1, -2, -3, -4, 5, 6, 7, 8],
+        [10, 20, 30, 40, 50, 60, 70, 80],
+        [-5, -10, -15, -20, -25, -30, -35, -40]
+    ];
+    
+    let C = [];
+    
+    for (let i = 0; i < M.length; i++) {
+        let contagemNegativos = 0;
+        for (let j = 0; j < M[i].length; j++) {
+            if (M[i][j] < 0) {
+                contagemNegativos++;
+            }
+        }
+        C.push(contagemNegativos);
+    }
+    
+    console.log("Matriz M:");
+    console.log(M);
+    console.log("\nVetor C (quantidade de negativos por linha):");
+    console.log(C);
+    
+    return C;
+}
+
+// contarNegativosPorLinha();
 
 
 
@@ -336,6 +435,18 @@ idade. Adicione uma nova propriedade chamada email ao objeto pessoa que já poss
 nome e idade.
 */
 
+let pessoa = {
+    nome: "João Silva",
+    idade: 30
+};
+
+console.log("Idade da pessoa:", pessoa.idade);
+
+pessoa.email = "joao.silva@example.com";
+
+console.log("Objeto pessoa após adicionar email:");
+console.log(pessoa);
+
 
 
 
@@ -345,6 +456,34 @@ nome e idade.
 strings e arrays. Escreva uma função que retorne um novo objeto apenas com as
 propriedades que são arrays.
 */
+
+let dados = {
+    nome: "Projeto A",
+    versao: 1.5,
+    tags: ["javascript", "web", "tutorial"],
+    descricao: "Um projeto de exemplo",
+    numeros: [10, 20, 30, 40],
+    ativo: true,
+    colaboradores: ["Ana", "Bruno", "Carlos"]
+};
+
+function filtrarArrays(objeto) {
+    let novoObjeto = {};
+    
+    for (let chave in objeto) {
+        if (Array.isArray(objeto[chave])) {
+            novoObjeto[chave] = objeto[chave];
+        }
+    }
+    
+    return novoObjeto;
+}
+
+console.log("Objeto original:");
+console.log(dados);
+
+console.log("\nApenas propriedades que são arrays:");
+console.log(filtrarArrays(dados));
 
 
 
@@ -356,6 +495,42 @@ combinando as propriedades de ambos, onde as propriedades de obj2 têm
 precedência sobre as do obj1 em caso de conflitos.
 */
 
+let obj1 = {
+    nome: "Projeto",
+    versao: 1.0,
+    linguagem: "JavaScript",
+    ativo: false
+};
+
+let obj2 = {
+    versao: 2.0,
+    ativo: true,
+    autor: "João"
+};
+
+function combinarObjetos(objeto1, objeto2) {
+    let resultado = {};
+    
+    // Copiar todas as propriedades de obj1
+    for (let chave in objeto1) {
+        resultado[chave] = objeto1[chave];
+    }
+    
+    // Copiar/sobrescrever com as propriedades de obj2
+    for (let chave in objeto2) {
+        resultado[chave] = objeto2[chave];
+    }
+    
+    return resultado;
+}
+
+console.log("Objeto 1:");
+console.log(obj1);
+console.log("\nObjeto 2:");
+console.log(obj2);
+console.log("\nObjeto combinado (obj2 tem precedência):");
+console.log(combinarObjetos(obj1, obj2));
+
 
 
 
@@ -364,6 +539,27 @@ precedência sobre as do obj1 em caso de conflitos.
 20. Dado um array de strings, crie um objeto onde cada string é uma chave, e seu valor é o
 número de vezes que a string aparece no array.
 */
+
+let palavras = ["javascript", "python", "javascript", "java", "python", "javascript", "c++", "java"];
+
+function contarOcorrencias(array) {
+    let contagem = {};
+    
+    for (let palavra of array) {
+        if (contagem[palavra]) {
+            contagem[palavra]++;
+        } else {
+            contagem[palavra] = 1;
+        }
+    }
+    
+    return contagem;
+}
+
+console.log("Array de palavras:");
+console.log(palavras);
+console.log("\nContagem de ocorrências:");
+console.log(contarOcorrencias(palavras));
 
 
 
@@ -374,3 +570,32 @@ número de vezes que a string aparece no array.
 com vendedor e valor. Escreva uma função que retorne um objeto que sumarize o total
 de vendas por vendedor.
 */
+
+let vendas = [
+    { vendedor: "Ana", valor: 1500 },
+    { vendedor: "Bruno", valor: 2000 },
+    { vendedor: "Ana", valor: 1200 },
+    { vendedor: "Carlos", valor: 1800 },
+    { vendedor: "Bruno", valor: 2500 },
+    { vendedor: "Ana", valor: 950 },
+    { vendedor: "Carlos", valor: 2200 }
+];
+
+function sumarizarVendasPorVendedor(arrayVendas) {
+    let resumo = {};
+    
+    for (let venda of arrayVendas) {
+        if (resumo[venda.vendedor]) {
+            resumo[venda.vendedor] += venda.valor;
+        } else {
+            resumo[venda.vendedor] = venda.valor;
+        }
+    }
+    
+    return resumo;
+}
+
+console.log("Vendas realizadas:");
+console.log(vendas);
+console.log("\nResumo de vendas por vendedor:");
+console.log(sumarizarVendasPorVendedor(vendas));
